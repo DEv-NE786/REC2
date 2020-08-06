@@ -3,10 +3,9 @@ const { Client, MessageEmbed, Emoji, MessageReaction } = require('discord.js');
 const CONFIG = require('./config');
 
 const client = new Client({ disableEveryone: true });
-if (CONFIG.botToken === '')
-    throw new Error("The 'botToken' property is not set in the config.js file. Please do this!");
 
-client.login(CONFIG.botToken);
+
+client.login(process.env.Token);
 
 // If there isn't a reaction for every role, alert the user
 if (CONFIG.roles.length !== CONFIG.reactions.length)
